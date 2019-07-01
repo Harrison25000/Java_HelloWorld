@@ -1,11 +1,25 @@
 public class Main {
 
     public static void main(String[] args) {
-        int x = 5;
+            int beerNum = 99;
+            String word = "bottles";
 
-        while (x<10) {
-            System.out.println("less than 10");
-            x += 1;
+                    while(beerNum > 0){
+
+                        if(beerNum == 1) {
+                            word = "bottle"; // single bottle
+                        }
+
+                        System.out.println(beerNum + " " + word + " of beer on the wall");
+                        System.out.println(beerNum + " " + word + " of beer");
+                        System.out.println("Take one down");
+                        System.out.println("Pass it around");
+                        beerNum -= 1;
+
+                        if (beerNum == 0) {
+                            System.out.println("No more bottles of beer on the wall");
+                        }
+
         }
 
     }
