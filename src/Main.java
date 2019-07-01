@@ -1,27 +1,21 @@
+class Dog {
+    int size = 10;
+    String breed = "cockapoo";
+    String name;
 
-class Shuffle1 {
-
-    public static void main(String[] args) {
-
-        int x = 3;
-
-        while (x>0) {
-
-            if (x>2){
-                System.out.println("a");
-            }
-            if (x == 2) {
-                System.out.println("b c");
-            }
-            if (x == 1) {
-                System.out.println("d");
-                x-=1;
-            }
-
-            x -= 1;
-            System.out.println("-");
-        }
-
+    {
+        name = "Molly";
     }
 
+    void bark() {
+        System.out.println("Ruff, Ruff!");
+    }
+}
+
+class DogTestDrive {
+    public static void main (String[] args) {
+        Dog d = new Dog();
+        d.size = 40;
+        d.bark();
+    }
 }
