@@ -1,10 +1,27 @@
-import java.util.Arrays;
 
-public class Main {
+class Shuffle1 {
 
     public static void main(String[] args) {
-        String[] array = new String[] {"John", "Mary", "Bob"};
-        System.out.println(Arrays.toString(array));
+
+        int x = 3;
+
+        while (x>0) {
+
+            if (x>2){
+                System.out.println("a");
+            }
+            if (x == 2) {
+                System.out.println("b c");
+            }
+            if (x == 1) {
+                System.out.println("d");
+                x-=1;
+            }
+
+            x -= 1;
+            System.out.println("-");
+        }
 
     }
+
 }
