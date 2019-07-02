@@ -1,21 +1,26 @@
-class Dog {
-    int size = 10;
-    String breed = "cockapoo";
-    String name;
+class DrumKit {
 
-    {
-        name = "Molly";
+    boolean topHat = true;
+    boolean snare = true;
+
+    void playSnare() {
+        System.out.println("bang bang ba-bang");
     }
 
-    void bark() {
-        System.out.println("Ruff, Ruff!");
+    void playTopHat() {
+        System.out.println("ding ding da-ding");
     }
+
 }
 
-class DogTestDrive {
-    public static void main (String[] args) {
-        Dog d = new Dog();
-        d.size = 40;
-        d.bark();
+class DrumKitTestDrive {
+    public static void main(String [] args) {
+        DrumKit d = new DrumKit();
+        d.playSnare();
+        d.snare = false;
+        d.playTopHat();
+        if (d.snare == true) {
+            d.playSnare();
+        }
     }
 }
