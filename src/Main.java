@@ -1,28 +1,27 @@
-class Hobbits {
-
-    String name;
-
+class TestArrays {
     public static void main(String[] args) {
-        Hobbits[] h = new Hobbits[3];
-        int z = 0;
+        int y = 0;
+        int ref;
 
-        while (z<3) {
-            h[z] = new Hobbits();
-            h[z].name = "bilbo";
+        while (y < 4) {
+            int[] index = new int[4];
+            String[] islands = new String[4];
 
-            if(z == 1) {
-                h[z].name = "frodo";
-            }
-            if(z == 2) {
-                h[z].name = "sam";
-            }
+            islands[0] = "Bermuda";
+            islands[1] = "Fiji";
+            islands[2] = "Azores";
+            islands[3] = "Cozumel";
 
-            System.out.print(h[z].name + " is a ");
-            System.out.println("good Hobbit name");
-            z += 1;
+            index[0] = 1;
+            index[3] = 2;
+            index[1] = 3;
+            index[2] = 0;
+
+            ref = index[y];
+
+            System.out.print("island = ");
+            System.out.println(islands[ref]);
+            y += 1;
         }
     }
-
-
-
 }
