@@ -1,30 +1,28 @@
-class Dog {
-    String name;
+class Books {
+    String title;
+    String author;
+}
 
+class BookTestDrive {
     public static void main(String[] args) {
-        Dog dog1 = new Dog();
-        dog1.bark();
-        dog1.name = "Bart";
 
-        Dog[] myDogs = new Dog[3];
-        myDogs[0] = new Dog();
-        myDogs[1] = new Dog();
-        myDogs[2] = dog1;
-
-        myDogs[1].name = "Marge";
-        myDogs[0].name = "Homer";
-
-        System.out.print("Child of " + myDogs[0].name + " and " + myDogs[1].name + " is ");
-        System.out.println(myDogs[2].name);
-
+        Books[] myBooks = new Books[3];
         int x = 0;
-        while(x < myDogs.length) {
-            myDogs[x].bark();
+        myBooks[0] = new Books();
+        myBooks[1] = new Books();
+        myBooks[2] = new Books();
+        myBooks[0].title = "The Grapes of Java";
+        myBooks[1].title = "The Java Gatsby";
+        myBooks[2].title = "The Java Coookbook";
+        myBooks[0].author = "bob";
+        myBooks[1].author = "sue";
+        myBooks[2].author = "ian";
+
+        while (x < 3) {
+            System.out.print(myBooks[x].title);
+            System.out.print(" by ");
+            System.out.println(myBooks[x].author);
             x += 1;
         }
-    }
-
-    private void bark() {
-        System.out.println(name + " says Ruff!");
     }
 }
