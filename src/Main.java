@@ -1,26 +1,30 @@
-class DrumKit {
+class Dog {
+    String name;
 
-    boolean topHat = true;
-    boolean snare = true;
+    public static void main(String[] args) {
+        Dog dog1 = new Dog();
+        dog1.bark();
+        dog1.name = "Bart";
 
-    void playSnare() {
-        System.out.println("bang bang ba-bang");
-    }
+        Dog[] myDogs = new Dog[3];
+        myDogs[0] = new Dog();
+        myDogs[1] = new Dog();
+        myDogs[2] = dog1;
 
-    void playTopHat() {
-        System.out.println("ding ding da-ding");
-    }
+        myDogs[1].name = "Marge";
+        myDogs[0].name = "Homer";
 
-}
+        System.out.print("Child of " + myDogs[0].name + " and " + myDogs[1].name + " is ");
+        System.out.println(myDogs[2].name);
 
-class DrumKitTestDrive {
-    public static void main(String [] args) {
-        DrumKit d = new DrumKit();
-        d.playSnare();
-        d.snare = false;
-        d.playTopHat();
-        if (d.snare == true) {
-            d.playSnare();
+        int x = 0;
+        while(x < myDogs.length) {
+            myDogs[x].bark();
+            x += 1;
         }
+    }
+
+    private void bark() {
+        System.out.println(name + " says Ruff!");
     }
 }
