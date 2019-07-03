@@ -1,27 +1,30 @@
-class TestArrays {
+class Triangle {
+    double area;
+    int height;
+    int length;
+
     public static void main(String[] args) {
-        int y = 0;
-        int ref;
+        Triangle[] ta = new Triangle[4];
 
-        while (y < 4) {
-            int[] index = new int[4];
-            String[] islands = new String[4];
-
-            islands[0] = "Bermuda";
-            islands[1] = "Fiji";
-            islands[2] = "Azores";
-            islands[3] = "Cozumel";
-
-            index[0] = 1;
-            index[3] = 2;
-            index[1] = 3;
-            index[2] = 0;
-
-            ref = index[y];
-
-            System.out.print("island = ");
-            System.out.println(islands[ref]);
-            y += 1;
+        int x = 0;
+        while (x<4) {
+            ta[x] = new Triangle();
+            ta[x].height = (x + 1) * 2;
+            ta[x].length = x + 4;
+            ta[x].setArea();
+            System.out.print("triangle "+x+", area");
+            System.out.println(" = " + ta[x].area);
+            x += 1;
         }
+        int y = x;
+        x = 27;
+
+        Triangle t5 = ta[2];
+        ta[2].area = 343;
+        System.out.print("y = " + y);
+        System.out.println(", t5 area = " + t5.area);
+    }
+    void setArea() {
+        area = (height * length) / 2;
     }
 }
