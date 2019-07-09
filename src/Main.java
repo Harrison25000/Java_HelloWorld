@@ -1,17 +1,36 @@
-class MultiFor {
-
-    public static void main(String[] args){
-
-        for(int x = 0; x<4; x++) {
-                for (int y = 4; y > 2; y--) {
-                        System.out.println(x + " " + y);
-
-                }
-                if (x==1) {
-                    x++;
-                }
-            }
-
+class A{
+    int ivar = 7;
+    void m1() {
+        System.out.print("A's m1, ");
     }
+    void m2() {
+        System.out.print("A's m2, ");
+    }
+    void m3() {
+        System.out.print("A's m3, ");
+    }
+}
 
+class B extends A {
+    void m1() {
+        System.out.print("B's m1, ");
+    }
+}
+
+class C extends B {
+    void m3(){
+        System.out.print("C's m3, " + (ivar + 6));
+    }
+}
+
+class Mixed2 {
+    public static void main(String[] args) {
+        A a = new A();
+        B b = new B();
+        C c = new C();
+        A a2 = new C();
+        a2.m1();
+        a2.m2();
+        a2.m3();
+    }
 }
