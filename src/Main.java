@@ -1,36 +1,35 @@
-class A{
-    int ivar = 7;
-    void m1() {
-        System.out.print("A's m1, ");
+class Rowboat extends Boat {
+    public void rowTheBoat() {
+        System.out.print("stroke natasha");
     }
-    void m2() {
-        System.out.print("A's m2, ");
+}
+class Boat {
+    private int length;
+    public void setLength(int len) {
+        length = len;
     }
-    void m3() {
-        System.out.print("A's m3, ");
+    public int getLength() {
+        return length;
+    }
+    public void move() {
+        System.out.print("drift // ");
+    }
+}
+class Sailboat extends Boat {
+    public void move() {
+        System.out.print("hoist sail ///");
     }
 }
 
-class B extends A {
-    void m1() {
-        System.out.print("B's m1, ");
+class TestBoats {
+    public static void main(String[] args){
+        Boat b1 = new Boat();
+        Sailboat b2 = new Sailboat();
+        Rowboat b3 = new Rowboat();
+        b2.setLength(32);
+        b1.move();
+        b3.move();
+        b2.move();
     }
-}
 
-class C extends B {
-    void m3(){
-        System.out.print("C's m3, " + (ivar + 6));
-    }
-}
-
-class Mixed2 {
-    public static void main(String[] args) {
-        A a = new A();
-        B b = new B();
-        C c = new C();
-        A a2 = new C();
-        a2.m1();
-        a2.m2();
-        a2.m3();
-    }
 }
