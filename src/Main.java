@@ -1,46 +1,26 @@
-class Java8Tester {
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.*;
+import java.time.*;
+import java.time.format.*;
+import java.util.*;
+import java.util.logging.*;
 
-    public static void main(String args[]) {
-        Java8Tester tester = new Java8Tester();
+ class TestClass {
+    public static void main(String[] args) throws IOException{
+        Files.createDirectories(Paths.get("logs"));
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyyMMdd_hhmm");
+        LocalDateTime now = LocalDateTime.now();
+        String date = now.format(df);
+        String logFileName = "logs\\testlog-" + date + ".txt";
+        FileHandler myFileHandler = new FileHandler(logFileName);
+        myFileHandler.setFormatter(new SimpleFormatter());
+        Logger ocajLogger = Logger.getLogger("OCAJ Logger");
+        ocajLogger.setLevel(Level.ALL);
+        ocajLogger.addHandler(myFileHandler);
+        ocajLogger.info("\nThis is a logged information message. ");
+        myFileHandler.close();
 
-        //with type declaration
-        MathOperation addition = (int a, int b) -> a + b;
-
-        //with out type declaration
-        MathOperation subtraction = (a, b) -> a - b;
-
-        //with return statement along with curly braces
-        MathOperation multiplication = (int a, int b) -> { return a * b; };
-
-        //without return statement and without curly braces
-        MathOperation division = (int a, int b) -> a / b;
-
-        System.out.println("10 + 5 = " + tester.operate(10, 5, addition));
-        System.out.println("10 - 5 = " + tester.operate(10, 5, subtraction));
-        System.out.println("10 x 5 = " + tester.operate(10, 5, multiplication));
-        System.out.println("10 / 5 = " + tester.operate(10, 5, division));
-
-        //without parenthesis
-        GreetingService greetService1 = message ->
-                System.out.println("Hello " + message);
-
-        //with parenthesis
-        GreetingService greetService2 = (message) ->
-                System.out.println("Hello " + message);
-
-        greetService1.sayMessage("Mahesh");
-        greetService2.sayMessage("Suresh");
-    }
-
-    interface MathOperation {
-        int operation(int a, int b);
-    }
-
-    interface GreetingService {
-        void sayMessage(String message);
-    }
-
-    private int operate(int a, int b, MathOperation mathOperation) {
-        return mathOperation.operation(a, b);
     }
 }
