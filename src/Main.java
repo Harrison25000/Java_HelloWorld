@@ -1,15 +1,18 @@
-import java.util.*;
-import java.util.Random;
+class TrueFalse {
 
-class numbers {
- public static void main(String[] args) {
-     Random rand = new Random();
-    int n = rand.nextInt(1000);
-     List<Integer> digits = new ArrayList<Integer>();
-     while (n > 0) {
-         digits.add(n%10);
-         n/=10;
-     }
-     System.out.println(Arrays.toString(digits.toArray()));
- }
+    public static void main(String[] args) {
+        boolean b;
+
+        boolean bValue = (b = true);
+
+        if (bValue) System.out.println("TRUE");
+        else System.out.println("FALSE");
+
+        if (bValue = false) System.out.println("TRUE");
+        else System.out.println("FALSE");
+
+        if (bValue == false) System.out.println("TRUE");
+        else System.out.println("FALSE");  //So I think, because bValue is a boolean variable & 'false' is a statement, they are two different objects, thereby returning a value of 'false' which makes the 'if' part of the if/else statement correct, returning "TRUE".
+    }
+
 }
