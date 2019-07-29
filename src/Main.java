@@ -1,29 +1,37 @@
-class Number
+class LoanDetails
 {
-    int number;
-public Number(int number){
-    this.number = number;
-}
-int getNumber(){
-    return this.number;
-}
 
-void setNumber(int number){
-    this.number = number;
-}
+    private int term;
+    private double rate;
+    private double principal;
 
-void addThree(Number value){
-    System.out.println("Parameter: Value = " + value.getNumber());
-    value.setNumber(value.getNumber() + 3);
-    System.out.println("Leaving method : value = " + value.getNumber());
-}
+    public LoanDetails() {
+        term = 180;
+        rate = .0265;
+        principal = 0;
+    }
 
-public static void main(String[] args) {
-   Number value = new Number(1);
-   System.out.println("Argument: value =   " + value.getNumber());
-   value.addThree(value);
-   System.out.println("After method call = " + value.getNumber());
-}
+    public LoanDetails(int t, double r, double p){
+        term = t;
+        rate = r;
+        principal = p;
+    }
+
+    public void setPrincipal(double p){
+        principal = p;
+    }
+
+    public double monthlyPayment() {
+        return (rate * principal / 12) / (1.0 - Math.pow(((rate/12)+1.0), (-term)));
+    }
+
+    public static void main(String[] args){
+        LoanDetails ld = new LoanDetails();
+        ld.setPrincipal(150000);
+        System.out.println("Payment 1 : " + ld.monthlyPayment());
+        LoanDetails ld2 = new LoanDetails(10, .025, 125000);
+        System.out.println("Payment 2 : "+ ld2.monthlyPayment());
+    }
 
 }
 
