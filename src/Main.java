@@ -1,19 +1,17 @@
-class Main{
-    private static void bob(){
-        System.out.println("bob");
-    }
-    public static void runbobrun(){
-        System.out.println("lets run ");
-        Main.bob();
-    }
-}
 
 class Jumanji{
+
+//    public Jumanji(){
+//        this.ok();
+//
+//    }
     public static void main(String[] args){
-        Main.runbobrun();
+        Jumanji j = new Jumanji();
+        j.ok();
     }
     public void ok(){
-        Main.runbobrun();
+        System.out.print("bob");
+
     }
 
 }
