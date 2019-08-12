@@ -8,6 +8,11 @@ class Thrower{
         }
         catch(IOException ex){
             System.out.println("Caught an IO exception!");
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+        }
+        finally{
+            System.out.println("BOB");
         }
     }
     public void throw1() throws IOException {
@@ -26,6 +31,7 @@ class Thrower{
     public void throw4() throws IOException {
         System.out.println("4");
         throw new IOException();
+
     }
 }
 
